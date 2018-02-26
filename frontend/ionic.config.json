@@ -1,0 +1,14 @@
+{
+  "name": "digifood",
+  "app_id": "9a1abf48",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  },
+  "proxies": [
+    {
+      "path": "/menu",
+      "proxyUrl": "http://localhost:8080/menu"
+    }
+  ]
+}

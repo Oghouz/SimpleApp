@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>{{ menu.title }}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+
+  <div text-center="">
+    <img src="{{ menu.image }}">
+  </div>
+
+  <hr>
+  <div>
+    <p>{{ menu.description }}</p>
+    <h3>Prix: {{ menu.price.toFixed(2) }}€</h3>
+  </div>
+  <div>
+    <ion-icon ios="ios-remove-circle" md="md-remove-circle" (click)="removeQty()"></ion-icon>
+    <input type="number" value="{{ this.quantity }}" min="1" max="99">
+    <ion-icon ios="ios-add-circle" md="md-add-circle" (click)="addQty()"></ion-icon>
+  </div>
+  <button ion-button full><ion-icon ios="ios-cart" md="md-cart"> </ion-icon> Ajouter au panier</button>
+
+</ion-content>

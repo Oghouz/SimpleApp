@@ -1,0 +1,42 @@
+<!--
+  Generated template for the CartPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Panier</ion-title>
+    <ion-buttons right>
+      <button ion-button (click)="emptyCart()">vider</button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col col-6><strong>Menu</strong></ion-col>
+      <ion-col col-2><strong>Qté</strong></ion-col>
+      <ion-col col-3><strong>Prix</strong></ion-col>
+      <ion-col col-1><strong></strong></ion-col>
+    </ion-row>
+
+    <ion-row *ngFor="let menu of carts; let i=index">
+      <ion-col col-6>{{ menu.title }}</ion-col>
+      <ion-col col-2>x{{ menu.quantity }}</ion-col>
+      <ion-col col-3>{{ (menu.price*menu.quantity).toFixed(2) }}€</ion-col>
+      <ion-col col-1><ion-icon ios="ios-trash" md="md-trash" (click)="removeFromCart(i)" class="text-ios-danger"></ion-icon></ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col col-6><strong>Total: {{ total.toFixed(2) }}€</strong></ion-col>
+    </ion-row>
+
+    </ion-grid>
+
+</ion-content>

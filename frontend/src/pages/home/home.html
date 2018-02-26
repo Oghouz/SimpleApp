@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-navbar>
+    <ion-buttons left>
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>Digifood</ion-title>
+    <ion-buttons right (click)="showCart($event)">
+      <button ion-button icon-only id="cart-button">
+        <ion-icon ios="ios-cart" md="md-cart"> </ion-icon>
+        <ion-badge id="cart-quantity-badge" color="danger">{{ countCart }}</ion-badge>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <h3>List Menu</h3>
+  <ion-list>
+    <ion-item *ngFor="let menu of menus">
+      <ion-thumbnail item-start>
+        <img src="{{ menu.image }}">
+      </ion-thumbnail>
+      <h2>{{ menu.title }}</h2>
+      <small>{{ menu.description }}</small>
+      <p>Price: {{ menu.price.toFixed(2) }}€</p>
+      <button ion-button small item-end (click)="addToCart($event, {id:menu.id,title:menu.title,quantity:1,price:menu.price})"><ion-icon ios="ios-cart" md="md-cart"></ion-icon></button>
+    </ion-item>
+  </ion-list>
+</ion-content>
